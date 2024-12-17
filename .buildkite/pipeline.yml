@@ -1,0 +1,10 @@
+steps:
+  - command: "go test -v ."
+    label: ":llama: Tests"
+
+  - command: "go build ."
+    plugins:
+      - equinixmetal-buildkite/trivy#v1.20.0:
+          exit-code: 1
+    label: ":buildkite: build"
+
